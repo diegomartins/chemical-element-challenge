@@ -1,51 +1,39 @@
 package com.domsd.chemicalchallenge.validator;
 
+import com.domsd.chemicalchallenge.validator.criteria.ContentCriteria;
+import com.domsd.chemicalchallenge.validator.criteria.Criteria;
+import com.domsd.chemicalchallenge.validator.criteria.LengthCriteria;
+import com.domsd.chemicalchallenge.validator.criteria.OrderCriteria;
+
 public class ChemicalElementSymbolValidator {
 
+	private Criteria[] criteriaArray;
+	
+	public ChemicalElementSymbolValidator() {
+		
+		Criteria[] criteriaArray = {new LengthCriteria(),
+									new ContentCriteria(),
+									new OrderCriteria()};
+		
+		this.criteriaArray = criteriaArray;
+	}
+	
+	public ChemicalElementSymbolValidator(Criteria[] criteriaArray) {
+		this.criteriaArray = criteriaArray;
+	}
+	
 	public boolean validate(String elementName, String symbol) {
 		
 		if(symbol == null) {
 			return false;
 		}
 
-		boolean isValidByLengthCriteria = validateLengthCriteria(symbol);
-		boolean isValidByContentAndOrderCriteria = validateContentAndOrderCriteria(elementName, symbol);
+		boolean isValidByLengthCriteria  = new LengthCriteria().isValid(elementName, symbol);
+		boolean isValidByContentCriteria = new ContentCriteria().isValid(elementName, symbol);
+		boolean isValidByOrderCriteria   = new OrderCriteria().isValid(elementName, symbol);
 		
-		return isValidByLengthCriteria && isValidByContentAndOrderCriteria;
+		return isValidByLengthCriteria && isValidByContentCriteria && isValidByOrderCriteria;
 		
 	}
 
-	private boolean validateContentAndOrderCriteria(String elementName, String symbol) {
-		
-		String normalizedSymbol = symbol.toLowerCase();
-		String normalizedElement = elementName.toLowerCase();
-
-		char[] symbolLetters = normalizedSymbol.toCharArray();
-		
-		int fromIndex = 0;
-
-		for (char letter : symbolLetters) {
-			
-			if(normalizedElement.indexOf(letter, fromIndex) < 0) {
-				return false;
-			}
-			
-			fromIndex = normalizedElement.indexOf(letter, fromIndex) + 1;
-			
-		}
-		
-		return true;
-	}
-
-	
-	private boolean validateLengthCriteria(String symbol) {
-		
-		if(symbol.length() != 2) {
-			return false;
-		}
-		
-		return true;
-	}
-	
-	
 }
