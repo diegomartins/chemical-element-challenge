@@ -92,7 +92,7 @@ public class ChemicalElementValidatorUnitTest {
 	}
 	
 	@Test
-	public void validate_symbolLettersAreTheSame_itOnlyAppearsOnceOnTheElement_firstLetter_isNotValid() {
+	public void validate_symbolLettersAreTheSame_itOnlyAppearsOnceInTheElement_firstLetter_isNotValid() {
 		
 		boolean isValid = symbolValidator.validate("Noboro", "Nn");
 		
@@ -100,7 +100,7 @@ public class ChemicalElementValidatorUnitTest {
 	}
 	
 	@Test
-	public void validate_symbolLettersAreTheSame_itOnlyAppearsOnceOnTheElement_secondLetter_isNotValid() {
+	public void validate_symbolLettersAreTheSame_itOnlyAppearsOnceInTheElement_secondLetter_isNotValid() {
 		
 		boolean isValid = symbolValidator.validate("Unulu", "Nn");
 		
@@ -108,7 +108,7 @@ public class ChemicalElementValidatorUnitTest {
 	}
 	
 	@Test
-	public void validate_symbolLettersAreTheSame_itAppearsTwiceOnTheElement_firstLetter_isValid() {
+	public void validate_symbolLettersAreTheSame_itAppearsTwiceInTheElement_firstLetter_isValid() {
 		
 		boolean isValid = symbolValidator.validate("Unulu", "Uu");
 		
@@ -116,10 +116,69 @@ public class ChemicalElementValidatorUnitTest {
 	}
 	
 	@Test
-	public void validate_symbolLettersAreTheSame_itAppearsTwiceOnTheElement_secondLetter_isValid() {
+	public void validate_symbolLettersAreTheSame_itAppearsTwiceInTheElement_secondLetter_isValid() {
 		
 		boolean isValid = symbolValidator.validate("Kapope", "Pp");
 		
 		assertTrue(isValid);
 	}
+	
+	
+	
+	/**
+	 *                    
+	 *                    Validating order
+	 *                    
+	 */
+	@Test
+	public void validate_symbolLettersAppearInTheSameOrderAsInElement_adjacent_isValid() {
+		
+		boolean isValid = symbolValidator.validate("Porigom", "Or");
+		
+		assertTrue(isValid);
+	}
+
+	@Test
+	public void validate_symbolLettersAppearInTheSameOrderAsInElement_nonAdjacent_isValid() {
+		
+		boolean isValid = symbolValidator.validate("Porigom", "Ro");
+		
+		assertTrue(isValid);
+	}
+	
+	@Test
+	public void validate_symbolLettersAppearInADifferentOrderFromTheElement_adjacent_isNotValid() {
+		
+		boolean isValid = symbolValidator.validate("Porigom", "Gi");
+		
+		assertFalse(isValid);
+	}
+	
+	
+	@Test
+	public void validate_symbolLettersAppearInADifferentOrderFromTheElement_nonAdjacent_isNotValid() {
+		
+		boolean isValid = symbolValidator.validate("Porigom", "Gr");
+		
+		assertFalse(isValid);
+	}
+	
+	
+	
+	/**
+	 * 
+	 * Examples given by DZone
+	 * 
+	 */
+	@Test
+	public void validate_givenExamples() {
+		
+		assertTrue(symbolValidator.validate("Spenglerium", "Ee"));
+		assertTrue(symbolValidator.validate("Zeddemorium", "Zr"));
+		assertTrue(symbolValidator.validate("Venkmine", "Kn"));
+		assertFalse(symbolValidator.validate("Stantzon", "Zt"));
+		assertFalse(symbolValidator.validate("Melintzum", "Nn"));
+		assertFalse(symbolValidator.validate("Tullium", "Ty"));
+	}
+	
 }

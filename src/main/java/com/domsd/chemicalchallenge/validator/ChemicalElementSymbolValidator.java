@@ -9,25 +9,28 @@ public class ChemicalElementSymbolValidator {
 		}
 
 		boolean isValidByLengthCriteria = validateLengthCriteria(symbol);
-		boolean isValidByContentCriteria = validateContentCriteria(elementName, symbol);
+		boolean isValidByContentAndOrderCriteria = validateContentAndOrderCriteria(elementName, symbol);
 		
-		return isValidByLengthCriteria && isValidByContentCriteria;
+		return isValidByLengthCriteria && isValidByContentAndOrderCriteria;
 		
 	}
 
-	private boolean validateContentCriteria(String elementName, String symbol) {
+	private boolean validateContentAndOrderCriteria(String elementName, String symbol) {
 		
-		char[] symbolLetters = symbol.toLowerCase().toCharArray();
+		String normalizedSymbol = symbol.toLowerCase();
+		String normalizedElement = elementName.toLowerCase();
+
+		char[] symbolLetters = normalizedSymbol.toCharArray();
 		
 		int fromIndex = 0;
 
 		for (char letter : symbolLetters) {
 			
-			if(elementName.toLowerCase().indexOf(letter, fromIndex) < 0) {
+			if(normalizedElement.indexOf(letter, fromIndex) < 0) {
 				return false;
 			}
 			
-			fromIndex = elementName.toLowerCase().indexOf(letter, fromIndex) + 1;
+			fromIndex = normalizedElement.indexOf(letter, fromIndex) + 1;
 			
 		}
 		
