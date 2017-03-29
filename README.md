@@ -1,6 +1,8 @@
 # chemical-element-challenge
 
-[![Build Status](https://travis-ci.org/diegomartins/chemical-element-challenge.svg?branch=master)](https://travis-ci.org/diegomartins/chemical-element-challenge)
+[![Build Status](https://travis-ci.org/diegomartins/chemical-element-challenge.svg?branch=master)]
+(https://travis-ci.org/diegomartins/chemical-element-challenge)
+[![codecov.io](https://codecov.io/github/diegomartins/chemical-element-challenge/coverage.svg?branch=master)](https://codecov.io/github/diegomartins/chemical-element-challenge?branch=master)
 
 DZone Challenge: https://dzone.com/articles/java-code-challenge-chemical-symbol-naming-part-on
 
