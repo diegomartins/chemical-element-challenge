@@ -28,12 +28,15 @@ public class ChemicalElementSymbolValidator {
 			return false;
 		}
 
-		boolean isValidByLengthCriteria  = new LengthCriteria().isValid(elementName, symbol);
-		boolean isValidByContentCriteria = new ContentCriteria().isValid(elementName, symbol);
-		boolean isValidByOrderCriteria   = new OrderCriteria().isValid(elementName, symbol);
+		boolean valid = true;
 		
-		return isValidByLengthCriteria && isValidByContentCriteria && isValidByOrderCriteria;
 		
+		for (Criteria criteria : criteriaArray) {
+			valid = valid && criteria.isValid(elementName, symbol);
+		}
+		
+		
+		return valid;
 	}
 
 }
