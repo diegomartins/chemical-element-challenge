@@ -7,15 +7,6 @@ import org.junit.Test;
 
 public class MyUtilsUnitTest {
 
-	public static Integer nullSafeGet(Integer myInteger) {
-		
-		if(myInteger == null) {
-			return 0;
-		}
-		
-		return myInteger;
-	}
-	
 	@Test
 	public void nullSafeGet_integerParameterIsNull_shouldReturnZero() {
 		
