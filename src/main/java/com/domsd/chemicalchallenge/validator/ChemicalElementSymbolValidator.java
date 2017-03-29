@@ -30,7 +30,6 @@ public class ChemicalElementSymbolValidator {
 
 		boolean valid = true;
 		
-		
 		for (Criteria criteria : criteriaArray) {
 			valid = valid && criteria.isValid(elementName, symbol);
 		}

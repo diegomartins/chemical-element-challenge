@@ -6,7 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ChemicalElementValidatorUnitTest {
+import com.domsd.chemicalchallenge.validator.criteria.Criteria;
+
+public class ChemicalElementSymbolValidatorUnitTest {
 
 	private ChemicalElementSymbolValidator symbolValidator;
 	
@@ -35,6 +37,25 @@ public class ChemicalElementValidatorUnitTest {
 		assertFalse(isValid);
 	}
 
+	@Test
+	public void validate_validByFirstCriteria_invalidBySecond_isNotValid() {
+		
+		symbolValidator = new ChemicalElementSymbolValidator(new Criteria[]{getValidCriteria(), getInvalidCriteria()});
+		
+		boolean isValid = symbolValidator.validate("Unulu", "Un");
+		
+		assertFalse(isValid);
+	}
+	
+	@Test
+	public void validate_validBySecondCriteria_invalidByFirst_isNotValid() {
+		
+		symbolValidator = new ChemicalElementSymbolValidator(new Criteria[]{getInvalidCriteria(), getValidCriteria()});
+		
+		boolean isValid = symbolValidator.validate("Unulu", "Un");
+		
+		assertFalse(isValid);
+	}
 	
 	/**
 	 * 
@@ -50,6 +71,28 @@ public class ChemicalElementValidatorUnitTest {
 		assertFalse(symbolValidator.validate("Stantzon", "Zt"));
 		assertFalse(symbolValidator.validate("Melintzum", "Nn"));
 		assertFalse(symbolValidator.validate("Tullium", "Ty"));
+	}
+	
+	private Criteria getValidCriteria() {
+		
+		return new Criteria() {
+			
+			@Override
+			public boolean isValid(String element, String symbol) {
+				return true;
+			}
+		};
+	}
+
+	private Criteria getInvalidCriteria() {
+		
+		return new Criteria() {
+			
+			@Override
+			public boolean isValid(String element, String symbol) {
+				return false;
+			}
+		};
 	}
 	
 }
