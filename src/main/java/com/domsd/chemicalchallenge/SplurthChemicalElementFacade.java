@@ -1,7 +1,9 @@
 package com.domsd.chemicalchallenge;
 
+import com.domsd.chemicalchallenge.application.ChemicalElementSymbolCalculator;
 import com.domsd.chemicalchallenge.application.ChemicalElementSymbolGenerator;
 import com.domsd.chemicalchallenge.application.validator.ChemicalElementSymbolValidator;
+import com.domsd.chemicalchallenge.interfaces.SymbolCalculator;
 import com.domsd.chemicalchallenge.interfaces.SymbolGenerator;
 import com.domsd.chemicalchallenge.interfaces.SymbolValidator;
 
@@ -11,10 +13,13 @@ public class SplurthChemicalElementFacade {
 	
 	private SymbolGenerator symbolGenerator;
 
+	private SymbolCalculator symbolCalculator;
+	
 	
 	public SplurthChemicalElementFacade() {
-		symbolValidator = new ChemicalElementSymbolValidator();
-		symbolGenerator = new ChemicalElementSymbolGenerator();
+		symbolValidator  = new ChemicalElementSymbolValidator();
+		symbolGenerator  = new ChemicalElementSymbolGenerator();
+		symbolCalculator = new ChemicalElementSymbolCalculator();
 	}
 	
 	
@@ -32,6 +37,12 @@ public class SplurthChemicalElementFacade {
 		return symbol;
 	}
 	
+	public int retrieveNumberOfValidSymbols(String elementName) {
+		
+		int numberOfValidSymbols = symbolCalculator.retrieveNumberOfValidSymbols(elementName);
+		
+		return numberOfValidSymbols;
+	}
 	
 	/*
 	 * For testing purposes only
@@ -42,6 +53,10 @@ public class SplurthChemicalElementFacade {
 	
 	protected void setSymbolGenerator(SymbolGenerator symbolGenerator) {
 		this.symbolGenerator = symbolGenerator;
+	}
+	
+	protected void setSymbolCalculator(SymbolCalculator symbolCalculator) {
+		this.symbolCalculator = symbolCalculator;
 	}
 	
 

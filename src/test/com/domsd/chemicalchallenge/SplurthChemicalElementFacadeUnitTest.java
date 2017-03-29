@@ -1,15 +1,17 @@
 package com.domsd.chemicalchallenge;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import com.domsd.chemicalchallenge.application.ChemicalElementSymbolCalculator;
 import com.domsd.chemicalchallenge.application.ChemicalElementSymbolGenerator;
 import com.domsd.chemicalchallenge.application.validator.ChemicalElementSymbolValidator;
+import com.domsd.chemicalchallenge.interfaces.SymbolCalculator;
 import com.domsd.chemicalchallenge.interfaces.SymbolGenerator;
 import com.domsd.chemicalchallenge.interfaces.SymbolValidator;
 
@@ -20,17 +22,21 @@ public class SplurthChemicalElementFacadeUnitTest {
 	private SymbolValidator symbolValidator;
 
 	private SymbolGenerator symbolGenerator;
+
+	private SymbolCalculator symbolCalculator;
 	
 	@Before
 	public void setup() {
 		
-		symbolValidator = Mockito.mock(ChemicalElementSymbolValidator.class);
-		symbolGenerator = Mockito.mock(ChemicalElementSymbolGenerator.class);
+		symbolValidator  = Mockito.mock(ChemicalElementSymbolValidator.class);
+		symbolGenerator  = Mockito.mock(ChemicalElementSymbolGenerator.class);
+		symbolCalculator = Mockito.mock(ChemicalElementSymbolCalculator.class);
 		
 		facade = new SplurthChemicalElementFacade();
 		
 		facade.setSymbolValidator(symbolValidator);
 		facade.setSymbolGenerator(symbolGenerator);
+		facade.setSymbolCalculator(symbolCalculator);
 	}
 	
 	@Test
@@ -64,9 +70,21 @@ public class SplurthChemicalElementFacadeUnitTest {
 
 		String symbol = symbolGenerator.generateSymbol("Unulu");
 		
-		Assert.assertEquals("Ul", symbol);
+		assertEquals("Ul", symbol);
 		
 		Mockito.verify(symbolGenerator).generateSymbol("Unulu");
+	}
+	
+	@Test
+	public void retrieveNumberOfValidSymbols_shouldCallSymbolGenerator() {
+
+		Mockito.when(symbolCalculator.retrieveNumberOfValidSymbols("Unulu")).thenReturn(8);
+
+		int numberOfValidSymbols = symbolCalculator.retrieveNumberOfValidSymbols("Unulu");
+		
+		assertEquals(8, numberOfValidSymbols);
+		
+		Mockito.verify(symbolCalculator).retrieveNumberOfValidSymbols("Unulu");
 	}
 	
 }

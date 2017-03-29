@@ -1,10 +1,11 @@
 package com.domsd.chemicalchallenge.application;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
-public class SymbolGeneratorUnitTest {
+public class ChemicalElementSymbolGeneratorUnitTest {
 
 	private ChemicalElementSymbolGenerator symbolGenerator;
 	
@@ -19,7 +20,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Kokoa");
 		
-		Assert.assertEquals("Ka", symbol);
+		assertEquals("Ka", symbol);
 	}
 	
 	@Test
@@ -27,7 +28,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Gozerium");
 		
-		Assert.assertEquals("Ei", symbol);
+		assertEquals("Ei", symbol);
 	}
 	
 	@Test
@@ -35,7 +36,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Slimyrine");
 		
-		Assert.assertEquals("Ie", symbol);
+		assertEquals("Ie", symbol);
 	}
 	
 	@Test
@@ -43,7 +44,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Abcdef");
 		
-		Assert.assertEquals("Ab", symbol);
+		assertEquals("Ab", symbol);
 	}
 	
 	@Test
@@ -51,7 +52,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Fedcba");
 		
-		Assert.assertEquals("Ba", symbol);
+		assertEquals("Ba", symbol);
 	}
 	
 	@Test
@@ -59,7 +60,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Zzzzza");
 		
-		Assert.assertEquals("Za", symbol);
+		assertEquals("Za", symbol);
 	}
 	
 	@Test
@@ -67,7 +68,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Zzzzaa");
 		
-		Assert.assertEquals("Aa", symbol);
+		assertEquals("Aa", symbol);
 	}
 	
 	@Test
@@ -75,7 +76,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Fo");
 		
-		Assert.assertEquals("Fo", symbol);
+		assertEquals("Fo", symbol);
 	}
 	
 	@Test
@@ -83,7 +84,7 @@ public class SymbolGeneratorUnitTest {
 		
 		String symbol = symbolGenerator.generateSymbol("Of");
 		
-		Assert.assertEquals("Of", symbol);
+		assertEquals("Of", symbol);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
