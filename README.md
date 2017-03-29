@@ -1,8 +1,6 @@
 # chemical-element-challenge
 
-[![Build Status](https://travis-ci.org/diegomartins/chemical-element-challenge.svg?branch=master)]
-(https://travis-ci.org/diegomartins/chemical-element-challenge)
-[![codecov.io](https://codecov.io/github/diegomartins/chemical-element-challenge/coverage.svg?branch=master)](https://codecov.io/github/diegomartins/chemical-element-challenge?branch=master)
+[![Build Status][travis-image]][travis-url] [![codecov.io](https://codecov.io/github/diegomartins/chemical-element-challenge/coverage.svg?branch=master)](https://codecov.io/github/diegomartins/chemical-element-challenge?branch=master)
 
 DZone Challenge: https://dzone.com/articles/java-code-challenge-chemical-symbol-naming-part-on
 
@@ -13,5 +11,8 @@ I tried to dissociate every criteria in a way that we can easily turn off just o
 I tried to keep the system as flexible as possible, so that we can, for example, easily deal with a change in requirements.
 
 Since performance is not a main concern for this exercise, I took the freedom to not be so concerned about it.
+
+[travis-image]: https://travis-ci.org/diegomartins/chemical-element-challenge.svg?branch=master
+[travis-url]: https://travis-ci.org/diegomartins/chemical-element-challenge
 
 
