@@ -9,9 +9,9 @@ import org.mockito.Mockito;
 
 import com.domsd.chemicalchallenge.validator.ChemicalElementSymbolValidator;
 
-public class ChemicalElementValidatorFacadeUnitTest {
+public class SplurthChemicalElementFacadeUnitTest {
 
-	private ChemicalElementValidatorFacade validatorFacade;
+	private SplurthChemicalElementFacade facade;
 	
 	private ChemicalElementSymbolValidator chemicalElementSymbolValidator;
 	
@@ -20,7 +20,7 @@ public class ChemicalElementValidatorFacadeUnitTest {
 		
 		chemicalElementSymbolValidator = Mockito.mock(ChemicalElementSymbolValidator.class);
 		
-		validatorFacade = new ChemicalElementValidatorFacade(chemicalElementSymbolValidator);
+		facade = new SplurthChemicalElementFacade(chemicalElementSymbolValidator);
 	}
 	
 	@Test
@@ -28,7 +28,7 @@ public class ChemicalElementValidatorFacadeUnitTest {
 		
 		Mockito.when(chemicalElementSymbolValidator.validate("Unulu", "Un")).thenReturn(true);
 
-		boolean isValid = validatorFacade.validateSymbol("Unulu", "Un");
+		boolean isValid = facade.validateSymbol("Unulu", "Un");
 		
 		assertTrue(isValid);
 		
@@ -40,7 +40,7 @@ public class ChemicalElementValidatorFacadeUnitTest {
 		
 		Mockito.when(chemicalElementSymbolValidator.validate("Unulu", "U")).thenReturn(false);
 
-		boolean isValid = validatorFacade.validateSymbol("Unulu", "U");
+		boolean isValid = facade.validateSymbol("Unulu", "U");
 		
 		assertFalse(isValid);
 		

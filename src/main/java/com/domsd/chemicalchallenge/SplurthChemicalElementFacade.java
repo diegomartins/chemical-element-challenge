@@ -2,7 +2,7 @@ package com.domsd.chemicalchallenge;
 
 import com.domsd.chemicalchallenge.validator.ChemicalElementSymbolValidator;
 
-public class ChemicalElementValidatorFacade {
+public class SplurthChemicalElementFacade {
 
 	private ChemicalElementSymbolValidator chemicalElementValidator;
 	
@@ -10,14 +10,14 @@ public class ChemicalElementValidatorFacade {
 	/****
 	 * Constructors
 	 */
-	public ChemicalElementValidatorFacade() {
+	public SplurthChemicalElementFacade() {
 		chemicalElementValidator = new ChemicalElementSymbolValidator();
 	}
 	
 	/*
 	 * For testing purposes only
 	 */
-	protected ChemicalElementValidatorFacade(ChemicalElementSymbolValidator validator) {
+	protected SplurthChemicalElementFacade(ChemicalElementSymbolValidator validator) {
 		
 		chemicalElementValidator = validator;
 	}
