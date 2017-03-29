@@ -1,11 +1,12 @@
-package com.domsd.chemicalchallenge.validator;
+package com.domsd.chemicalchallenge.application.validator;
 
-import com.domsd.chemicalchallenge.validator.criteria.ContentCriteria;
-import com.domsd.chemicalchallenge.validator.criteria.Criteria;
-import com.domsd.chemicalchallenge.validator.criteria.LengthCriteria;
-import com.domsd.chemicalchallenge.validator.criteria.OrderCriteria;
+import com.domsd.chemicalchallenge.application.validator.criteria.ContentCriteria;
+import com.domsd.chemicalchallenge.application.validator.criteria.Criteria;
+import com.domsd.chemicalchallenge.application.validator.criteria.LengthCriteria;
+import com.domsd.chemicalchallenge.application.validator.criteria.OrderCriteria;
+import com.domsd.chemicalchallenge.interfaces.SymbolValidator;
 
-public class ChemicalElementSymbolValidator {
+public class ChemicalElementSymbolValidator implements SymbolValidator {
 
 	private Criteria[] criteriaArray;
 	

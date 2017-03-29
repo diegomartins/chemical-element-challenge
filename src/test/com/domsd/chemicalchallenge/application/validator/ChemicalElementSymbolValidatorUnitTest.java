@@ -1,4 +1,4 @@
-package com.domsd.chemicalchallenge.validator;
+package com.domsd.chemicalchallenge.application.validator;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.domsd.chemicalchallenge.validator.criteria.Criteria;
+import com.domsd.chemicalchallenge.application.validator.criteria.Criteria;
 
 public class ChemicalElementSymbolValidatorUnitTest {
 

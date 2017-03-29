@@ -1,4 +1,4 @@
-package com.domsd.chemicalchallenge.validator.criteria;
+package com.domsd.chemicalchallenge.application.validator.criteria;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
