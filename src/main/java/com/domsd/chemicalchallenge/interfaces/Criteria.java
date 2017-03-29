@@ -1,4 +1,4 @@
-package com.domsd.chemicalchallenge.application.validator.criteria;
+package com.domsd.chemicalchallenge.interfaces;
 
 public interface Criteria {
 

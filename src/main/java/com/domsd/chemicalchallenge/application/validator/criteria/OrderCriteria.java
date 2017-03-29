@@ -1,5 +1,7 @@
 package com.domsd.chemicalchallenge.application.validator.criteria;
 
+import com.domsd.chemicalchallenge.interfaces.Criteria;
+
 public class OrderCriteria implements Criteria {
 
 	@Override

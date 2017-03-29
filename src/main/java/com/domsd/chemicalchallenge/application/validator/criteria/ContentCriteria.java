@@ -2,6 +2,7 @@ package com.domsd.chemicalchallenge.application.validator.criteria;
 
 import java.util.HashMap;
 
+import com.domsd.chemicalchallenge.interfaces.Criteria;
 import com.domsd.chemicalchallenge.util.MyUtils;
 
 public class ContentCriteria implements Criteria {
