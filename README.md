@@ -1,4 +1,7 @@
 # chemical-element-challenge
+
+[![Build Status](https://travis-ci.org/diegomartins/chemical-element-challenge.svg?branch=master)](https://travis-ci.org/diegomartins/chemical-element-challenge)
+
 DZone Challenge: https://dzone.com/articles/java-code-challenge-chemical-symbol-naming-part-on
 
 I've made this little project in order to show up some of my software engineering and Java skills.
@@ -8,3 +11,5 @@ I tried to dissociate every criteria in a way that we can easily turn off just o
 I tried to keep the system as flexible as possible, so that we can, for example, easily deal with a change in requirements.
 
 Since performance is not a main concern for this exercise, I took the freedom to not be so concerned about it.
+
+
