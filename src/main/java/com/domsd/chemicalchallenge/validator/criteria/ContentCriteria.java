@@ -2,7 +2,7 @@ package com.domsd.chemicalchallenge.validator.criteria;
 
 import java.util.HashMap;
 
-import com.domsd.chemicalchallenge.util.MyUtils;
+import com.domsd.chemicalchallenge.util.MyUtilsUnitTest;
 
 public class ContentCriteria implements Criteria {
 
@@ -16,7 +16,7 @@ public class ContentCriteria implements Criteria {
 		
 		for(char letter : normalizedElement.toCharArray()) {
 			
-			Integer frequency = MyUtils.nullSafeGet(frequencyMap.get(letter));
+			Integer frequency = MyUtilsUnitTest.nullSafeGet(frequencyMap.get(letter));
 			
 			frequencyMap.put(letter, ++frequency);
 		}
@@ -24,7 +24,7 @@ public class ContentCriteria implements Criteria {
 		
 		for(char letter : normalizedSymbol.toCharArray()) {
 			
-			Integer frequency = MyUtils.nullSafeGet(frequencyMap.get(letter));
+			Integer frequency = MyUtilsUnitTest.nullSafeGet(frequencyMap.get(letter));
 			
 			if(frequency <= 0) {
 				return false;
