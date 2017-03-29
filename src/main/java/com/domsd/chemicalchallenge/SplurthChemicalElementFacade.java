@@ -1,5 +1,6 @@
 package com.domsd.chemicalchallenge;
 
+import com.domsd.chemicalchallenge.application.ChemicalElementSymbolGenerator;
 import com.domsd.chemicalchallenge.application.validator.ChemicalElementSymbolValidator;
 import com.domsd.chemicalchallenge.interfaces.SymbolGenerator;
 import com.domsd.chemicalchallenge.interfaces.SymbolValidator;
@@ -13,6 +14,7 @@ public class SplurthChemicalElementFacade {
 	
 	public SplurthChemicalElementFacade() {
 		symbolValidator = new ChemicalElementSymbolValidator();
+		symbolGenerator = new ChemicalElementSymbolGenerator();
 	}
 	
 	
